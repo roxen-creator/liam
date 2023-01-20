@@ -77,10 +77,10 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-    - family: Space Mono
+    - family: SpaceMono
       fonts:
-        - asset: assets/fonts/SpaceMono.ttf
-        - asset: fonts/SpaceMono-Bold.ttf
+        - asset: assets/fonts/SpaceMono/SpaceMono.ttf
+        - asset: assets/fonts/SpaceMono/SpaceMonoBold.ttf
           weight: 700
   #   - family: Trajan Pro
   #     fonts:
