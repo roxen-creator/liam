@@ -17,6 +17,8 @@ class AppStrings {
   static const String phoneHint = "Enter phone number";
   static const String signUp = "Sign Up";
   static const String noAccount = "Don’t have an account? ";
+  static const String alreadyMember = "Already a member? Signin";
+
   static const String agreeWithConditions =
       'By continuing your confirm that you agree \nwith our Term and Condition';
   static const String confirmPassword = "Confirm Password";
@@ -34,5 +36,4 @@ class AppStrings {
   static const String kNamelNullError = "Please Enter your name";
   static const String kPhoneNumberNullError = "Please Enter your phone number";
   static const String kAddressNullError = "Please Enter your address";
-  
 }

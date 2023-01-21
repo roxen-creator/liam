@@ -21,6 +21,7 @@ class SignFormClassState extends State<SignFormClass> {
   final TextEditingController password = TextEditingController();
   final TextEditingController confirmPassword = TextEditingController();
   bool _isObscure = true;
+  bool _isPassword = true;
   final _formKey = GlobalKey<FormState>();
 
   @override
@@ -156,7 +157,7 @@ class SignFormClassState extends State<SignFormClass> {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: TextFormField(
-                  obscureText: _isObscure,
+                  obscureText: _isPassword,
                   decoration: InputDecoration(
                       prefixIcon: const Icon(Icons.lock),
                       labelText: "Confirm Password",
@@ -165,19 +166,19 @@ class SignFormClassState extends State<SignFormClass> {
                         borderRadius: BorderRadius.circular(20),
                       ),
                       suffixIcon: IconButton(
-                        icon: Icon(_isObscure
+                        icon: Icon(_isPassword
                             ? Icons.visibility
                             : Icons.visibility_off),
                         onPressed: () {
                           setState(() {
-                            _isObscure = !_isObscure;
+                            _isPassword = !_isPassword;
                           });
                         },
                       )),
                   controller: confirmPassword,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
-                      return 'Please enter Password';
+                      return AppStrings.kPassNullError;
                     }
                     return null;
                   },
@@ -191,7 +192,7 @@ class SignFormClassState extends State<SignFormClass> {
                     borderRadius: BorderRadius.circular(30),
                   ),
                   child: const Text(
-                    "Sign Up",
+                    AppStrings.signUp,
                     style: TextStyle(
                       color: Colors.white,
                     ),
@@ -214,7 +215,7 @@ class SignFormClassState extends State<SignFormClass> {
                     onTap: () => Navigator.pushReplacementNamed(
                         context, Routes.loginScreen),
                     child: const SizedBox(
-                      child: Text("Dude already a member? Login ",
+                      child: Text(AppStrings.alreadyMember,
                           style: TextStyle(
                             color: Colors.black,
                           )),
