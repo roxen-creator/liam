@@ -164,8 +164,8 @@ class SignFormClassState extends State<SignFormClass> {
                     obscureText: _confirmController.isPassword.value,
                     decoration: InputDecoration(
                         prefixIcon: const Icon(Icons.lock),
-                        labelText: "Confirm Password",
-                        hintText: "Enter Password",
+                        labelText: AppStrings.confirmPassword,
+                        hintText: AppStrings.enterPassword,
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(20),
                         ),

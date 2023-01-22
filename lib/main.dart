@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:liam/presentiation/resources/routes_manager.dart';
-// import 'package:liam/presentiation/widget/satus.dart';
-// import 'package:liam/presentiation/widget/satus_full.dart';
-// import 'package:liam/presentiation/resources/routes_manager.dart';
+// import 'package:liam/presentation/widget/status.dart';
+// import 'package:liam/presentation/widget/status_full.dart';
+// import 'package:liam/presentation/resources/routes_manager.dart';
 
 void main() {
   runApp(const MyApp());
