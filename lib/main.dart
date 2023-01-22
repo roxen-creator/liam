@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:liam/presentiation/widget/satus.dart';
+import 'package:liam/presentiation/resources/routes_manager.dart';
+// import 'package:liam/presentiation/widget/satus.dart';
 // import 'package:liam/presentiation/widget/satus_full.dart';
 // import 'package:liam/presentiation/resources/routes_manager.dart';
 
@@ -19,10 +20,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const Status(),
+  
 
-      // onGenerateRoute: RouteGenerator.getRoute,
-      // initialRoute: Routes.loginScreen,
+      onGenerateRoute: RouteGenerator.getRoute,
+      initialRoute: Routes.loginScreen,
     );
   }
 }

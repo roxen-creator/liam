@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:liam/presentiation/resources/assets_manager.dart';
 import 'package:liam/presentiation/resources/color_manager.dart';
 import 'package:liam/presentiation/resources/strings_manager.dart';
+import 'package:liam/presentiation/sign_in/components/sign_in_controller.dart';
 import 'package:liam/presentiation/widget/social_card.dart';
-
 import '../resources/routes_manager.dart';
 import '../resources/size_config.dart';
+
 
 class SignInScreen extends StatefulWidget {
   const SignInScreen({Key? key}) : super(key: key);
@@ -16,9 +18,10 @@ class SignInScreen extends StatefulWidget {
 class _LoginFormClassState extends State<SignInScreen> {
   final TextEditingController username = TextEditingController();
   final TextEditingController password = TextEditingController();
-  bool _isObscure = true;
+
   String passBackData = '';
   final _formKey = GlobalKey<FormState>();
+  final SignInController _signInController = Get.put(SignInController());
 
   @override
   Widget build(BuildContext context) {
@@ -63,9 +66,10 @@ class _LoginFormClassState extends State<SignInScreen> {
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: TextFormField(
-                obscureText: _isObscure,
-                decoration: InputDecoration(
+              child: Obx(
+                () => TextFormField(
+                  obscureText: _signInController.isObsecure.value,
+                  decoration: InputDecoration(
                     prefixIcon: const Icon(Icons.key),
                     labelText: AppStrings.password,
                     hintText: AppStrings.enterPassword,
@@ -73,21 +77,22 @@ class _LoginFormClassState extends State<SignInScreen> {
                       borderRadius: BorderRadius.circular(20),
                     ),
                     suffixIcon: IconButton(
-                      icon: Icon(
-                          _isObscure ? Icons.visibility : Icons.visibility_off),
+                      icon: Icon(_signInController.isObsecure.value
+                          ? Icons.visibility
+                          : Icons.visibility_off),
                       onPressed: () {
-                        setState(() {
-                          _isObscure = !_isObscure;
-                        });
+                        _signInController.changeObsecure();
                       },
-                    )),
-                controller: password,
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return AppStrings.kPassNullError;
-                  }
-                  return null;
-                },
+                    ),
+                  ),
+                  controller: password,
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return AppStrings.kPassNullError;
+                    }
+                    return null;
+                  },
+                ),
               ),
             ),
             Padding(

@@ -4,7 +4,7 @@ class ColorManager {
   static Color kPrimaryColor = HexColor.fromHex("#FFEADO");
   static Color kSecondaryColor = HexColor.fromHex("#ded9ee");
   static Color kTextColor = HexColor.fromHex("#212121");
-  static Color kButtonColor = HexColor.fromHex("#112537");
+  static Color kButtonColor = HexColor.fromHex("#3967d6");
 }
 
 extension HexColor on Color {

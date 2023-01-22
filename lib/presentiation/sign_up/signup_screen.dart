@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:liam/presentiation/resources/color_manager.dart';
 import 'package:liam/presentiation/resources/strings_manager.dart';
-
+import 'package:liam/presentiation/sign_up/componets/sign_up_controller.dart';
 import '../resources/assets_manager.dart';
 import '../resources/routes_manager.dart';
 import '../widget/social_card.dart';
@@ -20,10 +22,11 @@ class SignFormClassState extends State<SignFormClass> {
   final TextEditingController location = TextEditingController();
   final TextEditingController password = TextEditingController();
   final TextEditingController confirmPassword = TextEditingController();
-  bool _isObscure = true;
-  bool _isPassword = true;
-  final _formKey = GlobalKey<FormState>();
 
+  final _formKey = GlobalKey<FormState>();
+  final SignUpController _signUpController = Get.put(SignUpController());
+  final SignUpConfirmController _confirmController =
+      Get.put(SignUpConfirmController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -126,71 +129,69 @@ class SignFormClassState extends State<SignFormClass> {
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: TextFormField(
-                  obscureText: _isObscure,
-                  decoration: InputDecoration(
-                      prefixIcon: const Icon(Icons.lock),
-                      labelText: AppStrings.password,
-                      hintText: AppStrings.enterPassword,
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      suffixIcon: IconButton(
-                        icon: Icon(_isObscure
-                            ? Icons.visibility
-                            : Icons.visibility_off),
-                        onPressed: () {
-                          setState(() {
-                            _isObscure = !_isObscure;
-                          });
-                        },
-                      )),
-                  controller: password,
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return AppStrings.kPassNullError;
-                    }
-                    return null;
-                  },
+                child: Obx(
+                  () => TextFormField(
+                    obscureText: _signUpController.isObsecure.value,
+                    decoration: InputDecoration(
+                        prefixIcon: const Icon(Icons.lock),
+                        labelText: AppStrings.password,
+                        hintText: AppStrings.enterPassword,
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        suffixIcon: IconButton(
+                          icon: Icon(_signUpController.isObsecure.value
+                              ? Icons.visibility
+                              : Icons.visibility_off),
+                          onPressed: () {
+                            _signUpController.changeObsecure();
+                          },
+                        )),
+                    controller: password,
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return AppStrings.kPassNullError;
+                      }
+                      return null;
+                    },
+                  ),
                 ),
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: TextFormField(
-                  obscureText: _isPassword,
-                  decoration: InputDecoration(
-                      prefixIcon: const Icon(Icons.lock),
-                      labelText: "Confirm Password",
-                      hintText: "Enter Password",
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      suffixIcon: IconButton(
-                        icon: Icon(_isPassword
-                            ? Icons.visibility
-                            : Icons.visibility_off),
-                        onPressed: () {
-                          setState(() {
-                            _isPassword = !_isPassword;
-                          });
-                        },
-                      )),
-                  controller: confirmPassword,
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return AppStrings.kPassNullError;
-                    }
-                    return null;
-                  },
+                child: Obx(
+                  () => TextFormField(
+                    obscureText: _confirmController.isPassword.value,
+                    decoration: InputDecoration(
+                        prefixIcon: const Icon(Icons.lock),
+                        labelText: "Confirm Password",
+                        hintText: "Enter Password",
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        suffixIcon: IconButton(
+                          icon: Icon(_confirmController.isPassword.value
+                              ? Icons.visibility
+                              : Icons.visibility_off),
+                          onPressed: () {
+                            _confirmController.changePassword();
+                          },
+                        )),
+                    controller: confirmPassword,
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return AppStrings.kPassNullError;
+                      }
+                      return null;
+                    },
+                  ),
                 ),
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: MaterialButton(
-                  color: Colors.blue,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(30),
-                  ),
+                  minWidth: 3.0,
+                  color: ColorManager.kButtonColor,
                   child: const Text(
                     AppStrings.signUp,
                     style: TextStyle(
