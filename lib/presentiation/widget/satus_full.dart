@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 import 'package:liam/presentiation/resources/color_manager.dart';
 import 'package:story_view/story_view.dart';
-
-enum MediaType { image, video, text }
+import 'package:liam/app/constants/enums.dart';
 
 class WhatsappStory {
   final MediaType? mediaType;
@@ -109,7 +108,7 @@ class StoryViewDelegateState extends State<StoryViewDelegate> {
         storyItems.add(
           StoryItem.text(
             title: story.caption!,
-            backgroundColor: ColorManager.kPrimaryColor,
+            backgroundColor: ColorManager.kSecondaryColor,
             duration: Duration(
               milliseconds: (story.duration! * 1000).toInt(),
             ),

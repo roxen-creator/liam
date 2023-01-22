@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:liam/presentiation/resources/routes_manager.dart';
-
+import 'package:liam/presentiation/widget/satus.dart';
+// import 'package:liam/presentiation/widget/satus_full.dart';
+// import 'package:liam/presentiation/resources/routes_manager.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,8 +19,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      onGenerateRoute: RouteGenerator.getRoute,
-      initialRoute: Routes.loginScreen,
+      home: const Status(),
+
+      // onGenerateRoute: RouteGenerator.getRoute,
+      // initialRoute: Routes.loginScreen,
     );
   }
 }
@@ -34,7 +37,6 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Flutter app"),
       ),
-      // body: const MyCustomForm(),
     );
   }
 }
