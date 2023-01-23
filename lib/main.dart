@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:liam/presentiation/home/home_page.dart';
+import 'package:liam/presentiation/profile/profile_page.dart';
 // import 'package:liam/presentiation/home/home_page.dart';
 // import 'package:liam/presentiation/resources/routes_manager.dart';
 
