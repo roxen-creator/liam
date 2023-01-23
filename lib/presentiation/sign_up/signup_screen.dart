@@ -190,7 +190,6 @@ class SignFormClassState extends State<SignFormClass> {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: MaterialButton(
-                  minWidth: 3.0,
                   color: ColorManager.kButtonColor,
                   child: const Text(
                     AppStrings.signUp,
@@ -218,6 +217,9 @@ class SignFormClassState extends State<SignFormClass> {
                     child: const SizedBox(
                       child: Text(AppStrings.alreadyMember,
                           style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontFamily: "MonoSpace",
+                            fontSize: 20,
                             color: Colors.black,
                           )),
                     ),
