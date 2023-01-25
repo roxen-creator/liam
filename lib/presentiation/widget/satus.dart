@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:liam/presentiation/resources/strings_manager.dart';
 import 'satus_full.dart';
 
 class Status extends StatelessWidget {
@@ -7,9 +8,9 @@ class Status extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      body: Row(
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: Row(
         children: [
           Column(
             children: [
@@ -30,7 +31,7 @@ class Status extends StatelessWidget {
                             borderRadius: BorderRadius.circular(140)),
                         child: const CircleAvatar(
                           backgroundImage: NetworkImage(
-                            'https://cdn.now.howstuffworks.com/media-content/0b7f4e9b-f59c-4024-9f06-b3dc12850ab7-1920-1080.jpg',
+                            'https://www.google.com/imgres?imgurl=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1562753790369218560%2FwtiHWrkG_400x400.jpg&imgrefurl=https%3A%2F%2Fmobile.twitter.com%2Fbeingsalmankhan&tbnid=Gn_PTIc81iiFJM&vet=12ahUKEwijtqPOnd78AhX9I7cAHZsQBA0QMygDegUIARDmAQ..i&docid=nfbzJQwuS_MoDM&w=400&h=400&q=salman%20khan%20image&ved=2ahUKEwijtqPOnd78AhX9I7cAHZsQBA0QMygDegUIARDmAQ',
                           ),
                         )),
                     Positioned(
@@ -55,7 +56,7 @@ class Status extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(left: 8.0),
                 child: Text(
-                  'Sound Byte',
+                  AppStrings.uFname,
                   style: GoogleFonts.lato(
                       color: Colors.grey[700],
                       fontSize: 12,
@@ -92,7 +93,7 @@ class Status extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(left: 10.0),
                 child: Text(
-                  'Chris Pyne',
+                  AppStrings.uSname,
                   style: GoogleFonts.lato(
                       color: Colors.grey[700],
                       fontSize: 12,
@@ -148,6 +149,44 @@ class Status extends StatelessWidget {
                 ),
               ],
             ),
+          ),
+          Column(
+            children: [
+              Container(
+                decoration: const BoxDecoration(color: Colors.white),
+                height: 100,
+                child: Stack(
+                  children: <Widget>[
+                    Container(
+                        height: 78,
+                        width: 71,
+                        margin: const EdgeInsets.only(
+                            left: 25.0, top: 25, bottom: 5),
+                        padding: const EdgeInsets.all(2.0),
+                        decoration: BoxDecoration(
+                            border: Border.all(
+                                color: Colors.yellow[600]!, width: 2),
+                            borderRadius: BorderRadius.circular(140)),
+                        child: const CircleAvatar(
+                          backgroundImage: NetworkImage(
+                            'https://resize.indiatvnews.com/en/resize/newbucket/1200_-/2019/11/virat-kohli-1574240907.jpg',
+                          ),
+                        )),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 20.0),
+                child: Text(
+                  'Virat Kholi',
+                  style: GoogleFonts.lato(
+                      color: Colors.grey[700],
+                      fontSize: 12,
+                      letterSpacing: 1,
+                      fontWeight: FontWeight.normal),
+                ),
+              ),
+            ],
           ),
           Column(
             children: [

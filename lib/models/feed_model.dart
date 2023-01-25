@@ -1,12 +1,16 @@
-class FeedModel {
+class PostModel {
+  final String? name;
   final String? img;
-  final String? title;
   final String? description;
   final String? like;
+  final String? comments;
+  final String? time;
 
-  FeedModel(
-      {required this.img,
-      required this.title,
-      required this.description,
-      required this.like});
+  PostModel(
+      {this.name,
+      this.time,
+      this.img,
+      this.description,
+      this.like,
+      this.comments});
 }

@@ -1,11 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../../models/feed_model.dart';
 import '../resources/assets_manager.dart';
 import '../widget/feed_widget.dart';
 import '../widget/satus.dart';
 
 class MyHomePage extends StatelessWidget {
-  const MyHomePage({super.key});
+  MyHomePage({Key? key}) : super(key: key);
+  final List<PostModel> posts = [
+    PostModel(
+      name: "Starry Night over The Rhone",
+      img:
+          'https://smarthistory.org/wp-content/uploads/2021/12/1280px-Vincent_van_Gogh_-_Starry_Night_-_Google_Art_Project-870x672.jpeg',
+      time: "1hr",
+      comments: "23",
+      like: '43',
+      description: "Mujhe ghar jana hai",
+    ),
+    PostModel(
+      name: "Starry Night over The Rhone",
+      img:
+          'https://smarthistory.org/wp-content/uploads/2021/12/1280px-Vincent_van_Gogh_-_Starry_Night_-_Google_Art_Project-870x672.jpeg',
+      time: "1hr",
+      comments: "23",
+      like: '43',
+      description: "Mujhe ghar jana hai",
+    ),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -58,12 +79,14 @@ class MyHomePage extends StatelessWidget {
               padding: EdgeInsets.only(left: 15.0, right: 15),
               child: Divider(),
             ),
-            const SizedBox(
-              height: 10,
-            ),
-            const FivthFeedUI(),
-            const SizedBox(
-              height: 10,
+
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.6,
+              child: ListView.builder(
+                  itemCount: posts.length,
+                  itemBuilder: (context, index) => FeedUI(
+                        post: posts[index],
+                      )),
             ),
           ],
         ),

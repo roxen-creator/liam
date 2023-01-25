@@ -8,7 +8,6 @@ import 'package:liam/presentiation/widget/social_card.dart';
 import '../resources/routes_manager.dart';
 import '../resources/size_config.dart';
 
-
 class SignInScreen extends StatefulWidget {
   const SignInScreen({Key? key}) : super(key: key);
   @override
@@ -105,7 +104,7 @@ class _LoginFormClassState extends State<SignInScreen> {
                 onPressed: () {
                   if (_formKey.currentState!.validate()) {
                     // If the form is valid, display a snackbar. In the real world, you'd oftern call as server aor save the infomration in a database.
-                    // Navigator.pushReplacementNamed(context, Routes.FirstScreen);
+                    Navigator.pushReplacementNamed(context, Routes.mainScreen);
                   }
                 },
                 child: const Text(
@@ -132,7 +131,7 @@ class _LoginFormClassState extends State<SignInScreen> {
               child: Center(
                 child: GestureDetector(
                   onTap: () {
-                    Navigator.pushNamed(context, Routes.signupScreen);
+                    Navigator.pushNamed(context, Routes.mainScreen);
                   },
                   child: const SizedBox(
                     child: Text(AppStrings.noAccount,

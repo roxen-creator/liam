@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ColorManager {
-  static Color kPrimaryColor = HexColor.fromHex("#FFEADO");
+  static Color kPrimaryColor = HexColor.fromHex("#BC8680");
   static Color kSecondaryColor = HexColor.fromHex("#ded9ee");
   static Color kTextColor = HexColor.fromHex("#212121");
   static Color kButtonColor = HexColor.fromHex("#3967d6");

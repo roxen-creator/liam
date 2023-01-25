@@ -36,4 +36,21 @@ class AppStrings {
   static const String kNamelNullError = "Please Enter your name";
   static const String kPhoneNumberNullError = "Please Enter your phone number";
   static const String kAddressNullError = "Please Enter your address";
+
+  //status
+  // ignore: constant_identifier_names
+  static const String uFname = "Sound Byte";
+  static const String uSname = "Chris Pyne";
+
+//profile page
+  static const String userRole = "Occupation";
+  static const String userCompany = "Company";
+  static const String userLocation = "Location";
+  static const String info = "more about yourself";
+  static const String userEmail = "Email";
+  static const String userPhone = "Phone";
+  static const String blogTitle = "Blog Title";
+  static const String blogTitleHint = "Enter your blog's title";
+  static const String blogDesc = "Blog Description";
+  static const String blogDescHint = "Enter your blog's description";
 }
