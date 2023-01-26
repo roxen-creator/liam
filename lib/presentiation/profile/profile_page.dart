@@ -71,7 +71,7 @@ class _ProfileDetailsState extends State<ProfileDetails> {
                   padding: const EdgeInsets.only(right: 15.0),
                   child: Container(
                     decoration: const BoxDecoration(
-                        color: Colors.orange,
+                        color: Colors.blue,
                         borderRadius: BorderRadius.all(Radius.circular(40))),
                     child: Padding(
                       padding: const EdgeInsets.only(
@@ -118,7 +118,7 @@ class _ProfileDetailsState extends State<ProfileDetails> {
                             borderRadius: BorderRadius.circular(140)),
                         child: const CircleAvatar(
                           backgroundImage: NetworkImage(
-                            'https://assets.wired.com/photos/w_730/wp-content/uploads/2019/01/Culture_GeeksGuide_Bezos.jpg',
+                            'https://p16-sign-sg.tiktokcdn.com/aweme/720x720/tos-alisg-avt-0068/5f78460b062dddae4f02b6b94bda66f7.jpeg?x-expires=1674806400&x-signature=Te4fbWa%2BYc7UBcnRv0Jj1m7b7Vw%3D',
                           ),
                         )),
                     Positioned(
@@ -157,7 +157,7 @@ class _ProfileDetailsState extends State<ProfileDetails> {
                 Padding(
                   padding: const EdgeInsets.only(left: 37.0),
                   child: Text(
-                    'Scott Hamilton',
+                    'Luna Roulette',
                     style: GoogleFonts.lato(
                         color: Colors.grey[600],
                         fontSize: 14,

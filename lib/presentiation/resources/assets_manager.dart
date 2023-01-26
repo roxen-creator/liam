@@ -2,6 +2,7 @@ const String iconPath = "assets/icons";
 
 class ImageAssets {
   static const String googleIcon = "$iconPath/google-icon.svg";
+  static const String logoIcon = "$iconPath/logo.png";
   static const String faceBookIcon = "$iconPath/facebook-2.svg";
   static const String twitterIcon = "$iconPath/twitter.svg";
   static const String emailIcon = "$iconPath/Mail.svg";

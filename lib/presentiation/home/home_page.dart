@@ -11,7 +11,17 @@ class MyHomePage extends StatelessWidget {
     PostModel(
       name: "Starry Night over The Rhone",
       img:
-          'https://smarthistory.org/wp-content/uploads/2021/12/1280px-Vincent_van_Gogh_-_Starry_Night_-_Google_Art_Project-870x672.jpeg',
+          'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/46be2118-138d-4a35-9094-5025fce02fbf/ddvv6rp-082eda72-41c9-489c-9545-aa18121b8def.png/v1/fill/w_1192,h_670,q_70,strp/omen_1440_by_kimdesu_ddvv6rp-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTQ0MCIsInBhdGgiOiJcL2ZcLzQ2YmUyMTE4LTEzOGQtNGEzNS05MDk0LTUwMjVmY2UwMmZiZlwvZGR2djZycC0wODJlZGE3Mi00MWM5LTQ4OWMtOTU0NS1hYTE4MTIxYjhkZWYucG5nIiwid2lkdGgiOiI8PTI1NjAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.6ho0tIUWsAUNhgDn9C0zCV3au6Ds-ynHpXkC1yaR8kU',
+      time: "1hr",
+      comments: "23",
+      like: '43',
+      description:
+          "Mujhe ghar jana haiewpfkwepofkwepofkwefopewkfpwoeepsofkefpofkewopfkwepofewkfpwekfwepofkwepofkwepofkwepofkwepofwepofkwepofkwepofkwepofwekp",
+    ),
+    PostModel(
+      name: "Starry Night over The Rhone",
+      img:
+          'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/0d1da059-601a-4ba0-8d3c-971bced84939/de6kmy5-3d88e6b1-603e-4741-a752-75940fc3cff4.png/v1/fill/w_1192,h_670,q_70,strp/valorant___agents_by_karinscr_de6kmy5-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MjE2MCIsInBhdGgiOiJcL2ZcLzBkMWRhMDU5LTYwMWEtNGJhMC04ZDNjLTk3MWJjZWQ4NDkzOVwvZGU2a215NS0zZDg4ZTZiMS02MDNlLTQ3NDEtYTc1Mi03NTk0MGZjM2NmZjQucG5nIiwid2lkdGgiOiI8PTM4NDAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.9BThVU3-E9F8Z_ug56lyjBMsCJrV2wXuS89mtWdjwIs',
       time: "1hr",
       comments: "23",
       like: '43',
@@ -20,7 +30,7 @@ class MyHomePage extends StatelessWidget {
     PostModel(
       name: "Starry Night over The Rhone",
       img:
-          'https://smarthistory.org/wp-content/uploads/2021/12/1280px-Vincent_van_Gogh_-_Starry_Night_-_Google_Art_Project-870x672.jpeg',
+          'https://cdna.artstation.com/p/assets/images/images/058/307/080/large/mateusz-dabrowski-reyna-4k.jpg?1673877831',
       time: "1hr",
       comments: "23",
       like: '43',
@@ -47,7 +57,7 @@ class MyHomePage extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.only(left: 25.0),
                       child: Image.asset(
-                        ImageAssets.blog,
+                        ImageAssets.logoIcon,
                         height: 30,
                       ),
                     ),

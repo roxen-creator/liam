@@ -77,7 +77,7 @@ class MainPageState extends State<MainPage> {
           unselectedFontSize: 14,
           onTap: _onItemTapped,
           currentIndex: _selectedIndex,
-          selectedItemColor: Colors.orange,
+          selectedItemColor: Colors.blue,
           iconSize: 26,
           elevation: 5),
     );

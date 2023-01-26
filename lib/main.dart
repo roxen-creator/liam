@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Liam',
+      title: 'Lyamma lyamma',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),

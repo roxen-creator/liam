@@ -25,9 +25,7 @@ class _CreateBlogState extends State<CreateBlog> {
     }
 
     return Scaffold(
-      
         appBar: AppBar(
-          
           title: Center(
             child: Text(
               'Post Blog',
@@ -45,7 +43,6 @@ class _CreateBlogState extends State<CreateBlog> {
               ),
             )
           ],
-          
         ),
         body: SingleChildScrollView(
           child: Column(
@@ -58,11 +55,11 @@ class _CreateBlogState extends State<CreateBlog> {
                   margin: const EdgeInsets.symmetric(horizontal: 16),
                   height: 150,
                   decoration: BoxDecoration(
-                      color: Colors.grey,
+                      color: Colors.blue,
                       borderRadius: BorderRadius.circular(10)),
                   width: MediaQuery.of(context).size.width,
                   child: IconButton(
-                    icon: const Icon(Icons.camera_alt_rounded),
+                    icon: const Icon(Icons.add_photo_alternate_outlined),
                     iconSize: 30,
                     onPressed: () {
                       getImage();
@@ -78,10 +75,10 @@ class _CreateBlogState extends State<CreateBlog> {
                 child: TextFormField(
                   decoration: InputDecoration(
                     enabledBorder: const OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.white),
+                      borderSide: BorderSide(color: Colors.blue),
                     ),
                     focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.grey.shade400),
+                      borderSide: BorderSide(color: Colors.blueAccent.shade400),
                     ),
                     fillColor: Colors.grey.shade200,
                     filled: true,
@@ -95,10 +92,10 @@ class _CreateBlogState extends State<CreateBlog> {
                 child: TextFormField(
                   decoration: InputDecoration(
                     enabledBorder: const OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.white),
+                      borderSide: BorderSide(color: Colors.blueAccent),
                     ),
                     focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.grey.shade400),
+                      borderSide: BorderSide(color: Colors.blueAccent.shade400),
                     ),
                     fillColor: Colors.grey.shade200,
                     filled: true,

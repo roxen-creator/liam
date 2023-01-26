@@ -21,7 +21,7 @@ class FeedUI extends StatelessWidget {
                 borderRadius: BorderRadius.circular(140),
                 child: Container(
                   decoration: BoxDecoration(
-                      color: Colors.white,
+                      color: const Color.fromARGB(255, 69, 22, 22),
                       borderRadius: BorderRadius.circular(140)),
                   height: 58,
                   width: 60,
@@ -38,8 +38,7 @@ class FeedUI extends StatelessWidget {
                               borderRadius: BorderRadius.circular(140)),
                           child: CircleAvatar(
                               backgroundImage: NetworkImage(
-                            post!.img ??
-                                'https://img.freepik.com/free-photo/portrait-dark-skinned-cheerful-woman-with-curly-hair-touches-chin-gently-laughs-happily-enjoys-day-off-feels-happy-enthusiastic-hears-something-positive-wears-casual-blue-turtleneck_273609-43443.jpg?w=2000',
+                            post!.img ?? '',
                           ))),
                     ],
                   ),
@@ -85,8 +84,7 @@ class FeedUI extends StatelessWidget {
               );
             },
             child: Text(
-              post!.description ??
-                  'Was great meeting up with Anna Ferguson and Dave Bishop at the breakfast talk!',
+              post!.description ?? '',
               style: GoogleFonts.lato(
                   color: Colors.grey[600],
                   fontSize: 15,
@@ -107,8 +105,7 @@ class FeedUI extends StatelessWidget {
                 borderRadius: const BorderRadius.all(
                   Radius.circular(10),
                 ),
-                child: Image.network(post!.img ??
-                    'https://images.pexels.com/photos/2387873/pexels-photo-2387873.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'),
+                child: Image.network(post!.img ?? ''),
               )),
         ),
         Row(
@@ -122,7 +119,7 @@ class FeedUI extends StatelessWidget {
                     padding: const EdgeInsets.only(right: 5.0),
                     child: Image.asset(
                       'assets/icons/like.png',
-                      height: 35,
+                      height: 30,
                     ),
                   ),
                   Text(
@@ -143,8 +140,8 @@ class FeedUI extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(right: 1.0),
                     child: Image.network(
-                      'https://aux.iconspalace.com/uploads/comment-icon-256.png',
-                      height: 40,
+                      'https://cdn-icons-png.flaticon.com/128/2939/2939460.png',
+                      height: 30,
                     ),
                   ),
                   Text(

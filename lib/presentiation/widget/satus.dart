@@ -26,19 +26,18 @@ class Status extends StatelessWidget {
                             left: 15.0, right: 15, top: 25, bottom: 5),
                         padding: const EdgeInsets.all(2.0),
                         decoration: BoxDecoration(
-                            border: Border.all(
-                                color: Colors.yellow[600]!, width: 2),
+                            border: Border.all(color: Colors.blue, width: 2),
                             borderRadius: BorderRadius.circular(140)),
                         child: const CircleAvatar(
                           backgroundImage: NetworkImage(
-                            'https://www.google.com/imgres?imgurl=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1562753790369218560%2FwtiHWrkG_400x400.jpg&imgrefurl=https%3A%2F%2Fmobile.twitter.com%2Fbeingsalmankhan&tbnid=Gn_PTIc81iiFJM&vet=12ahUKEwijtqPOnd78AhX9I7cAHZsQBA0QMygDegUIARDmAQ..i&docid=nfbzJQwuS_MoDM&w=400&h=400&q=salman%20khan%20image&ved=2ahUKEwijtqPOnd78AhX9I7cAHZsQBA0QMygDegUIARDmAQ',
+                            'https://i0.wp.com/globalzonetoday.com/wp-content/uploads/2021/08/Luna-Roulette.jpg?ssl=1',
                           ),
                         )),
                     Positioned(
                       bottom: 7,
                       right: 15, //give the values according to your requirement
                       child: Material(
-                          color: Colors.orange,
+                          color: Colors.blue,
                           elevation: 10,
                           borderRadius: BorderRadius.circular(100),
                           child: const Padding(
@@ -126,7 +125,7 @@ class Status extends StatelessWidget {
                           padding: const EdgeInsets.all(2.0),
                           decoration: BoxDecoration(
                               border: Border.all(
-                                  color: Colors.yellow[600]!, width: 2),
+                                  color: Colors.blueAccent, width: 2),
                               borderRadius: BorderRadius.circular(140)),
                           child: const CircleAvatar(
                             backgroundImage: NetworkImage(
@@ -164,8 +163,8 @@ class Status extends StatelessWidget {
                             left: 25.0, top: 25, bottom: 5),
                         padding: const EdgeInsets.all(2.0),
                         decoration: BoxDecoration(
-                            border: Border.all(
-                                color: Colors.yellow[600]!, width: 2),
+                            border:
+                                Border.all(color: Colors.blueAccent, width: 2),
                             borderRadius: BorderRadius.circular(140)),
                         child: const CircleAvatar(
                           backgroundImage: NetworkImage(
@@ -202,8 +201,8 @@ class Status extends StatelessWidget {
                             left: 25.0, top: 25, bottom: 5),
                         padding: const EdgeInsets.all(2.0),
                         decoration: BoxDecoration(
-                            border: Border.all(
-                                color: Colors.yellow[600]!, width: 2),
+                            border:
+                                Border.all(color: Colors.blueAccent, width: 2),
                             borderRadius: BorderRadius.circular(140)),
                         child: const CircleAvatar(
                           backgroundImage: NetworkImage(
