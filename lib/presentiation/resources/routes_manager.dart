@@ -7,7 +7,7 @@ import '../sign_in/signin_screen.dart';
 import '../sign_up/signup_screen.dart';
 
 class Routes {
-  static const String loginScreen = "/LoginPage";
+  static const String loginScreen = "/LoginFormClass";
   static const String signupScreen = "/SignupPage";
   static const String homeScreen = "/MyHomePage";
   static const String mainScreen = "/MainPage";
@@ -20,7 +20,7 @@ class RouteGenerator {
   ) {
     switch (routeSettings.name) {
       case Routes.loginScreen:
-        return MaterialPageRoute(builder: (_) => const SignInScreen());
+        return MaterialPageRoute(builder: (_) => const LoginFormClass());
       case Routes.signupScreen:
         return MaterialPageRoute(builder: (_) => const SignFormClass());
       case Routes.homeScreen:

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'presentiation/resources/routes_manager.dart';
 
 // import 'package:liam/presentiation/home/home_page.dart';
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Lyamma lyamma',
       theme: ThemeData(
