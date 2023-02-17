@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:liam/presentiation/home/home_page.dart';
 import 'package:liam/presentiation/home/main_page.dart';
+import 'package:liam/presentiation/sign_up/sign_up_screen.dart';
 
 import '../blog/create_blog.dart';
 import '../sign_in/signin_screen.dart';
-import '../sign_up/signup_screen.dart';
 
 class Routes {
   static const String loginScreen = "/LoginFormClass";
-  static const String signupScreen = "/SignupPage";
+  static const String signupScreen = "/RegisterFormClass";
   static const String homeScreen = "/MyHomePage";
   static const String mainScreen = "/MainPage";
   static const String createBlog = "/CreateBlog";
@@ -22,9 +22,9 @@ class RouteGenerator {
       case Routes.loginScreen:
         return MaterialPageRoute(builder: (_) => const LoginFormClass());
       case Routes.signupScreen:
-        return MaterialPageRoute(builder: (_) => const SignFormClass());
+        return MaterialPageRoute(builder: (_) => const RegisterFormClass());
       case Routes.homeScreen:
-        return MaterialPageRoute(builder: (_) => MyHomePage());
+        return MaterialPageRoute(builder: (_) => const HomePage());
       case Routes.createBlog:
         return MaterialPageRoute(builder: (_) => const CreateBlog());
       case Routes.mainScreen:

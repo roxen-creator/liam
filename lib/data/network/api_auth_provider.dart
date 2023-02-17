@@ -3,6 +3,7 @@ import 'dart:developer';
 
 import 'package:http/http.dart' as http;
 import 'package:flutter/cupertino.dart';
+
 import '/app/constants/app_constants.dart';
 import '/models/token.dart';
 
@@ -12,6 +13,7 @@ class ApiAuthProvider {
   }
 
   Future<Token?> login(Map map) async {
+    log("$map");
     try {
       final response = await http.post(
         Uri.parse('${baseUrl}auth/login'),
@@ -27,6 +29,30 @@ class ApiAuthProvider {
       } else {
         log("error logging in");
         return null;
+      }
+    } catch (e, stacktrace) {
+      _printError(e, stacktrace);
+    }
+    return null;
+  }
+
+  Future<bool?> signUp(Map map) async {
+    log("$map");
+    try {
+      final response = await http.post(
+        Uri.parse('${baseUrl}auth/register'),
+        headers: <String, String>{
+          'Content-Type': 'application/json; charset=UTF-8',
+        },
+        body: jsonEncode(map),
+      );
+
+      if (response.statusCode == 200) {
+        log("Signed Up ${response.body}");
+        return true;
+      } else {
+        log("error signing up");
+        return false;
       }
     } catch (e, stacktrace) {
       _printError(e, stacktrace);

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:liam/presentiation/home/home_page.dart';
-import '../blog/create_blog.dart';
-import '../profile/profile_page.dart';
+import 'package:liam/presentiation/blog/create_blog.dart';
+import 'package:liam/presentiation/profile/profile_page.dart';
+import 'package:liam/presentiation/resources/color_manager.dart';
+import 'package:liam/presentiation/widget/feed_widget.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
@@ -13,10 +14,9 @@ class MainPage extends StatefulWidget {
 class MainPageState extends State<MainPage> {
   int _selectedIndex = 0;
   final List<Widget> _widgetOptions = <Widget>[
-    MyHomePage(),
+    FeedUI(),
     const ProfileDetails(),
     const CreateBlog(),
-    const SizedBox(),
     const SizedBox(),
     const SizedBox(),
   ];
@@ -50,7 +50,7 @@ class MainPageState extends State<MainPage> {
                 backgroundColor: Colors.yellow),
             BottomNavigationBarItem(
               icon: Icon(
-                Icons.add,
+                Icons.add_box_outlined,
               ),
               label: "",
               backgroundColor: Colors.blue,
@@ -77,7 +77,7 @@ class MainPageState extends State<MainPage> {
           unselectedFontSize: 14,
           onTap: _onItemTapped,
           currentIndex: _selectedIndex,
-          selectedItemColor: Colors.blue,
+          selectedItemColor: ColorManager.kPrimaryColor,
           iconSize: 26,
           elevation: 5),
     );

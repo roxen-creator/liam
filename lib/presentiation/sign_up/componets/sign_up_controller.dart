@@ -1,17 +1,47 @@
+import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 
+import '../../../data/network/api_auth_provider.dart';
+import '../../resources/routes_manager.dart';
+import '../../../models/token.dart';
+
 class SignUpController extends GetxController {
-  RxBool isObsecure = true.obs;
-
-  changeObsecure() {
-    isObsecure.value = !isObsecure.value;
+  final TextEditingController username = TextEditingController();
+  final TextEditingController password = TextEditingController();
+  final TextEditingController email = TextEditingController();
+  final formKey = GlobalKey<FormState>();
+  late final TextEditingController confirmPass = TextEditingController();
+  final ApiAuthProvider apiAuthProvider = ApiAuthProvider();
+  String checkPass = "";
+  Token? token;
+  RxBool isObscure = true.obs;
+  changeObscure() {
+    isObscure.value = !isObscure.value;
   }
-}
 
-class SignUpConfirmController extends GetxController {
-  RxBool isPassword = true.obs;
+  void registerUser(Map map) async {
+    bool? success = await apiAuthProvider.signUp(map);
 
-  changePassword() {
-    isPassword.value = !isPassword.value;
+    if (success!) {
+      Fluttertoast.showToast(
+          msg: "Check your credentials",
+          toastLength: Toast.LENGTH_SHORT,
+          gravity: ToastGravity.TOP,
+          backgroundColor: Colors.blue[300],
+          textColor: Colors.white,
+          fontSize: 16.0);
+    } else {
+      Get.offAllNamed(Routes.loginScreen);
+    }
+  }
+
+  void mapInputsLogin() {
+    Map map = {
+      "username": username.text,
+      "password": password.text,
+      "email": email.text
+    };
+    registerUser(map);
   }
 }

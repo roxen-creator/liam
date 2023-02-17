@@ -1,163 +1,235 @@
-import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:liam/models/feed_model.dart';
-import 'package:liam/presentiation/resources/assets_manager.dart';
+import 'dart:ui';
 
-import '../widget/satus.dart';
 
-class DetailPage extends StatelessWidget {
-  final PostModel? post;
-  const DetailPage({super.key, this.post});
+ import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:readmore/readmore.dart';
+
+import '../home/controller/post_controller.dart';
+
+
+
+
+class PostDetails extends StatelessWidget {
+  // PickedFile _image;
+  // final ImagePicker picker = ImagePicker();
+
+  // final PostModel? post;
+  PostDetails({Key? key}) : super(key: key);
+  final PostController _postController = Get.put(PostController());
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SingleChildScrollView(
-        child: SafeArea(
-          child: Column(children: [
-            const Status(),
-            Row(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(left: 18.0, top: 20),
-                  child: Material(
-                    elevation: 10,
-                    borderRadius: BorderRadius.circular(140),
-                    child: Container(
-                      decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(140)),
-                      height: 58,
-                      width: 60,
-                      child: Stack(
-                        children: <Widget>[
-                          Container(
-                              height: 78,
-                              width: 74,
-                              margin: const EdgeInsets.only(
-                                  left: 0, right: 0, top: 0, bottom: 0),
-                              padding: const EdgeInsets.all(0),
-                              decoration: BoxDecoration(
-                                  border:
-                                      Border.all(color: Colors.white, width: 2),
-                                  borderRadius: BorderRadius.circular(140)),
-                              child: CircleAvatar(
-                                  backgroundImage: NetworkImage(
-                                post!.img ??
-                                    'https://img.freepik.com/free-photo/portrait-dark-skinned-cheerful-woman-with-curly-hair-touches-chin-gently-laughs-happily-enjoys-day-off-feels-happy-enthusiastic-hears-something-positive-wears-casual-blue-turtleneck_273609-43443.jpg?w=2000',
-                              ))),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 15.0, top: 13),
-                    child: Text(
-                      post!.name ?? 'Sound Byte',
-                      style: GoogleFonts.lato(
-                          color: Colors.grey[700],
-                          fontSize: 16,
-                          letterSpacing: 1,
-                          fontWeight: FontWeight.bold),
-                    ),
+    return Obx( 
+      () =>  _postController.loading.value
+      ? const Center (child: CircularProgressIndicator())
+      : ListView.builder(
+          itemCount: _postController.dataResponse.length,
+          itemBuilder: (BuildContext context, int index) {
+            return Container(
+              color: Colors.white,
+              height: 500,
+              child: SafeArea(
+                  child: Scaffold(
+                      body: Stack(
+                children: [
+                  SizedBox(
+                    width: double.infinity,
+                    child: Image(
+                        image: NetworkImage(
+                      _postController.dataResponse[index].img,
+                      // 'https://img.freepik.com/free-photo/portrait-dark-skinned-cheerful-woman-with-curly-hair-touches-chin-gently-laughs-happily-enjoys-day-off-feels-happy-enthusiastic-hears-something-positive-wears-casual-blue-turtleneck_273609-43443.jpg?w=2000',
+                    )),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(left: 16.0),
-                    child: Text(
-                      post!.time ?? '1 hr',
-                      style: GoogleFonts.lato(
-                          color: Colors.grey[500],
-                          fontSize: 15,
-                          letterSpacing: 1,
-                          fontWeight: FontWeight.normal),
-                    ),
-                  ),
-                ]),
-              ],
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 20.0, right: 20, top: 20),
-              child: Text(
-                post!.description ??
-                    'Was great meeting up with Anna Ferguson and Dave Bishop at the breakfast talk!',
-                style: GoogleFonts.lato(
-                    color: Colors.grey[600],
-                    fontSize: 15,
-                    letterSpacing: 1,
-                    fontWeight: FontWeight.w300),
-                textAlign: TextAlign.justify,
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 18.0, right: 18, top: 15),
-              child: Material(
-                  borderRadius: const BorderRadius.all(Radius.circular(40)),
-                  elevation: 6,
-                  child: ClipRRect(
-                    borderRadius: const BorderRadius.all(
-                      Radius.circular(10),
-                    ),
-                    child: Image.network(post!.img ??
-                        'https://images.pexels.com/photos/2387873/pexels-photo-2387873.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'),
-                  )),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(top: 2, left: 28.0),
-                  child: Row(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(right: 5.0),
-                        child: Image.asset(
-                          ImageAssets.like,
-                          height: 35,
+                    padding: const EdgeInsets.all(10.0),
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.pop(context);
+                      },
+                      child: Container(
+                        clipBehavior: Clip.hardEdge,
+                        height: 55,
+                        width: 55,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(25),
+                        ),
+                        child: BackdropFilter(
+                          filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
+                          child: Container(
+                            height: 55,
+                            width: 55,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(25),
+                            ),
+                            child: const Icon(
+                              Icons.arrow_back_ios,
+                              size: 20,
+                              color: Colors.white,
+                            ),
+                          ),
                         ),
                       ),
-                      Text(
-                        post!.like ?? '45',
-                        style: GoogleFonts.averageSans(
-                            color: Colors.grey[700],
-                            fontSize: 20,
-                            letterSpacing: 1,
-                            fontWeight: FontWeight.normal),
-                      ),
-                    ],
+                    ),
                   ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 10, right: 22.0),
-                  child: Row(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(right: 1.0),
-                        child: Image.network(
-                          'https://aux.iconspalace.com/uploads/comment-icon-256.png',
-                          height: 30,
+                   DraggableScrollableSheet(
+                  initialChildSize: 0.7,
+                  maxChildSize: 1.0,
+                  minChildSize: 0.6,
+                  builder: (context, scrollController) {
+                    return Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      clipBehavior: Clip.hardEdge,
+                      decoration: const BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(25),
+                            topRight: Radius.circular(25)),
+                      ),
+                      child: SingleChildScrollView(
+                        controller: scrollController,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(top: 10, bottom: 15),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Container(
+                                    height: 5,
+                                    width: 35,
+                                    color: Colors.black12,
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Text(
+                              _postController.dataResponse[index].title,
+                              style: const TextStyle(
+                                fontSize: 32,
+                              ),
+                            ),
+                            const SizedBox(
+                              height: 10,
+                            ),
+                            // Text(
+                            //   _postController.dataResponse[index].createdAt,
+                            //   style: TextStyle(
+                            //     fontSize: 18,
+                            //   ),
+                            // ),
+                            const SizedBox(
+                              height: 15,
+                            ),
+                            Row(
+                              children: [
+                                InkWell(
+                                  onTap: () {
+                                    // Navigator.push(
+                                    //     context,
+                                    //     MaterialPageRoute(
+                                    //       builder: (context) =>
+                                    //           ProfileTap(showFollowBottomInProfile: true),
+                                    //     ));
+                                  },
+                                  child: CircleAvatar(
+                                    radius: 25,
+                                    child: Container(
+                                      height: 78,
+                                      width: 74,
+                                      margin: const EdgeInsets.only(
+                                          left: 0.0, right: 0, top: 0, bottom: 0),
+                                      padding: const EdgeInsets.all(0),
+                                      decoration: BoxDecoration(
+                                          border: Border.all(
+                                              color: Colors.blue, width: 2),
+                                          borderRadius:
+                                              BorderRadius.circular(150)),
+                                      child: CircleAvatar(
+                                          backgroundImage: NetworkImage(
+                                              _postController
+                                                  .dataResponse[index].img
+                                              // 'https://img.freepik.com/free-photo/portrait-dark-skinned-cheerful-woman-with-curly-hair-touches-chin-gently-laughs-happily-enjoys-day-off-feels-happy-enthusiastic-hears-something-positive-wears-casual-blue-turtleneck_273609-43443.jpg?w=2000',
+                                              )),
+                                    ),
+                                  ),
+                                ),
+                                const SizedBox(
+                                  width: 5,
+                                ),
+                                const Text("Elena Shelby",
+                                    style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                    )
+                                    // .copyWith(color: mainText),
+                                    ),
+                                const Spacer(),
+                                const CircleAvatar(
+                                  radius: 25,
+                                  // backgroundColor: primary,
+                                  child: Icon(
+                                    Icons.favorite_outline,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                                const SizedBox(
+                                  width: 5,
+                                ),
+                                Text(_postController.dataResponse[index].like,
+                                    style: const TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                    )
+                                    // .copyWith(color: mainText),
+                                    ),
+                              ],
+                            ),
+                            const Padding(
+                              padding: EdgeInsets.symmetric(vertical: 15),
+                              child: Divider(
+                                height: 4,
+                              ),
+                            ),
+                            const Text("Description",
+                                style: TextStyle(
+                                  fontSize: 25,
+                                  fontWeight: FontWeight.bold,
+                                )),
+                            ReadMoreText(
+                              // '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, se
+                              // d do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+                              //  ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliqu
+                              //  ip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in v
+                              //  oluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur si
+                              //  nt occaecat cupidatat non proident, sunt in culpa qui officia deserunt mo
+                              //  llit anim id est laborum',
+                              _postController.dataResponse[index].desc,
+                              trimLines: 5,
+                              colorClickableText: Colors.blue,
+                              trimMode: TrimMode.Line,
+                              trimCollapsedText: 'Show more',
+                              trimExpandedText: 'Show less',
+                              style: const TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.normal,
+                              ),
+                              textAlign: TextAlign.justify,
+                            ),
+                          ],
                         ),
                       ),
-                      Text(
-                        post!.comments ?? '45',
-                        style: GoogleFonts.averageSans(
-                            color: Colors.grey[700],
-                            fontSize: 20,
-                            letterSpacing: 1,
-                            fontWeight: FontWeight.normal),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-            const SizedBox(
-              height: 50,
-            ),
-          ]),
-        ),
-      ),
+                    );
+                  
+
+          })
+                ],
+              ))),
+            );
+          }),
     );
   }
+
+  
 }
